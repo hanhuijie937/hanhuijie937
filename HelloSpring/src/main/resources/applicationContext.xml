@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 将 Driver 类放置在 spring大工厂中 -->
+    <bean id="driver01" class="com.hanhj.Driver"></bean>
+    <!--  将 Tank 类放置在 spring大工厂中 -->
+    <bean id="Tank" class="com.hanhj.Tank" lazy-init="true">
+        <!-- 这里引入tank的属性 :
+            对应的 Tank 类中的  属性  Driver driver = new Driver();
+         -->
+        <property name="driver"  ref="driver01" ></property>
+    </bean>
+
+
+</beans>
